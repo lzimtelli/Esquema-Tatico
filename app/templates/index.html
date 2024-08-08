@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futsal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+  </head>
+
+  <header>
+    <img src="../static/imagens/logo-if.png" width="49px" height="60px"> </img>
+
+    <div class="menu">
+      <ul>
+        <li class="dropdown black">
+          <button class="btn" style="border-left: 1px solid navy">
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a>2x2</a>
+            <a>3x1</a>
+            <a>3x2</a>
+          </div>
+        </li>
+
+        <li>
+          <button class="reset-button" id="resetButton">Restaurar</button>
+        </li>
+
+        <li>
+          <button class="attack-button" id="attackButton">Ataque 2x2</button>
+        </li>
+
+        <li class="dropdown white">
+          <button class="btn" style="border-left: 1px solid navy">
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a>2x2</a>
+            <a>3x1</a>
+            <a>3x2</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <body>
+    <div class="campo azul">
+      <div class="campo vermelho">
+        <div class="linha-central"></div>
+        <div class="circulo-central"></div>
+        <div class="area-goleiro esquerda"></div>
+        <div class="area-goleiro direita"></div>
+        <div class="gol esquerda"></div>
+        <div class="gol direita"></div>
+
+        <div class="jogador" id="player1" draggable="true" style="top: 0%; left: 0%">1</div>
+        <div class="jogador" id="player2" draggable="true" style="top: 0%; left: 5%">2</div>
+        <div class="jogador" id="player3" draggable="true" style="top: 0%; left: 10%">3</div>
+        <div class="jogador" id="player4" draggable="true" style="top: 0%; left: 15%">4</div>
+        <div class="jogador" id="player5" draggable="true" style="top: 0%; left: 20%">5</div>
+        <div class="jogador white" id="player6" draggable="true" style="top: 0%; right: 0%">1</div>
+        <div class="jogador white" id="player7" draggable="true" style="top: 0%; right: 5%">2</div>
+        <div class="jogador white" id="player8" draggable="true" style="top: 0%; right: 10%">3</div>
+        <div class="jogador white" id="player9" draggable="true" style="top: 0%; right: 15%">4</div>
+        <div class="jogador white" id="player10" draggable="true" style="top: 0%; right: 20%">5</div>
+      </div>
+    </div>
+  </body>
+</html>

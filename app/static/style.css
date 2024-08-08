@@ -1,0 +1,193 @@
+header {
+  width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo{
+  background-image: url('../static/imagens/logo-if.png');
+  background-position: center;
+  background-size: contain;
+  width: 49px;
+  height: 60px;
+}
+
+header li {
+  display: inline-block;
+}
+
+.menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+body {
+  background-color: #62d2d6;
+}
+
+/* campo */
+
+.campo {
+  margin: 20px auto;
+  position: relative;
+}
+
+.campo.azul {
+  width: 1300px;
+  height: 700px;
+  background-color: #352bf7;
+  margin-top: 10px;
+}
+
+.campo.vermelho {
+  position: absolute;
+  margin-top: 45px;
+  margin-left: 65px;
+  width: 1165px;
+  height: 600px;
+  background-color: #ff4343;
+  border: 3px solid #fff;
+}
+
+.gol {
+  position: absolute;
+  width: 40px;
+  height: 300px;
+  border: 3px solid #fff;
+}
+
+.gol.esquerda {
+  left: -45px;
+  top: 24.5%;
+}
+
+.gol.direita {
+  right: -45px;
+  top: 24.5%;
+}
+
+.linha-central {
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background-color: #fff;
+  transform: translateX(-50%);
+}
+
+.circulo-central {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.area-goleiro {
+  position: absolute;
+  width: 150px;
+  height: 300px;
+  border: 3px solid #fff;
+}
+
+.area-goleiro.esquerda {
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.area-goleiro.direita {
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Jogadores */
+.jogador {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: move;
+}
+
+.jogador.white {
+  background-color: white;
+  color: black;
+}
+
+/* botoes */
+.botao {
+  right: 0;
+  top: 0;
+  background-color: black;
+}
+
+.reset-button {
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Listas das formações */
+.dropdown {
+  z-index: 1000;
+  top: 10%;
+}
+
+.dropdown.black {
+  left: 10px;
+}
+
+.dropdown.white {
+  left: 50px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.btn:hover,
+.dropdown:hover .btn {
+  background-color: #0b7dda;
+}

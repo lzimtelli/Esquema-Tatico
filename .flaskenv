@@ -1,0 +1,2 @@
+FLASK_APP=monitoria.py
+FLASK_ENV=development
