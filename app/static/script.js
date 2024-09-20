@@ -55,24 +55,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-    const attackButton = document.getElementById('attackButton');
     attackButton.addEventListener('click', () => {
-        const attackPositions = {
-            player1: { top: '45%', left: '70%' },
-            player2: { top: '30%', left: '60%' },
-            player3: { top: '60%', left: '60%' },
-            player4: { top: '15%', left: '40%' },
-            player5: { top: '75%', left: '40%' },
-        };
-
-        Object.keys(attackPositions).forEach(id => {
-            const jogador = document.getElementById(id);
-            const position = attackPositions[id];
-            jogador.style.top = position.top;
-            jogador.style.left = position.left;
-            jogador.style.right = 'auto';
+        // Variável para verificar se a formação 3x2 está ativa
+        let is3x2Formation = false;
+    
+        // Verifica se a formação 3x2 está ativa
+        const currentFormation = document.querySelector('.dropdown.black .dropdown-content a.active');
+        if (currentFormation && currentFormation.textContent === '3x2') {
+            is3x2Formation = true;
+        }
+    
+        jogadores.forEach(jogador => {
+            // Mover apenas os jogadores pretos para frente no eixo X
+            if (!jogador.classList.contains('white')) {
+                const currentLeft = parseFloat(jogador.style.left);
+    
+                // Verifica se é o goleiro (player1) e só permite movimento se for a formação 3x2
+                if (jogador.id === 'player1' && !is3x2Formation) {
+                    return; // Não move o goleiro se não for 3x2
+                }
+    
+                // Avançar os jogadores para frente em 10% no eixo X
+                jogador.style.left = `${Math.min(currentLeft + 10, 90)}%`; // Limita o movimento a no máximo 90% no campo
+            }
         });
     });
+    
 
     // movimentações -> b para pretas e w para brancas
     // 2x2
@@ -93,7 +101,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             jogador.style.left = position.left;
             jogador.style.right = 'auto';
         });
-    });
+
+        // Remover a classe 'active' de todas as formações e adicionar à 2x2
+        document.querySelectorAll('.dropdown.black .dropdown-content a').forEach(el => el.classList.remove('active'));
+        b2x2.classList.add('active');
+});
+
 
     const w2x2 = document.querySelector('.dropdown.white .dropdown-content a:first-child');
     w2x2.addEventListener('click', () => {
@@ -132,6 +145,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             jogador.style.left = position.left;
             jogador.style.right = 'auto';
         });
+
+        document.querySelectorAll('.dropdown.black .dropdown-content a').forEach(el => el.classList.remove('active'));
+        b3x1.classList.add('active');
     });
 
     const w3x1 = document.querySelector('.dropdown.white .dropdown-content a:nth-child(2)');
@@ -171,7 +187,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             jogador.style.left = position.left;
             jogador.style.right = 'auto';
         });
+
+        // Remover a classe 'active' de todas as formações e adicionar à 3x2
+        document.querySelectorAll('.dropdown.black .dropdown-content a').forEach(el => el.classList.remove('active'));
+        b3x2.classList.add('active');
     });
+
 
     const w3x2 = document.querySelector('.dropdown.white .dropdown-content a:nth-child(3)');
     w3x2.addEventListener('click', () => {
@@ -191,4 +212,46 @@ document.addEventListener('DOMContentLoaded', (event) => {
             jogador.style.left = 'auto';
         });
     });
+
+    const b1x2x1 = document.querySelector('.dropdown.black .dropdown-content a:nth-child(4)');
+    b1x2x1.addEventListener('click', () => {
+        const newPositions = {
+            player1: { top: '45%', left: '0%' },  
+            player2: { top: '30%', left: '14%' },  
+            player3: { top: '60%', left: '14%' },  
+            player4: { top: '45%', left: '36%' }, 
+            player5: { top: '45%', left: '50%' }, 
+        };
+
+        Object.keys(newPositions).forEach(id => {
+            const jogador = document.getElementById(id);
+            const position = newPositions[id];
+            jogador.style.top = position.top;
+            jogador.style.left = position.left;
+            jogador.style.right = 'auto';
+        });
+
+        document.querySelectorAll('.dropdown.black .dropdown-content a').forEach(el => el.classList.remove('active'));
+        b1x2x1.classList.add('active');
+    });
+
+    const w1x2x1 = document.querySelector('.dropdown.white .dropdown-content a:nth-child(4)');
+    w1x2x1.addEventListener('click', () => {
+        const newPositions = {
+            player6: { top: '45%', right: '0%' }, // Goleiro
+            player7: { top: '30%', right: '14%' }, // Defensor
+            player8: { top: '60%', right: '14%' }, // Defensor
+            player9: { top: '45%', right: '36%' }, // Meio-campo
+            player10: { top: '45%', right: '50%' }, // Atacante
+        };
+
+        Object.keys(newPositions).forEach(id => {
+            const jogador = document.getElementById(id);
+            const position = newPositions[id];
+            jogador.style.top = position.top;
+            jogador.style.right = position.right;
+            jogador.style.left = 'auto';
+        });
+    });
+
 });
