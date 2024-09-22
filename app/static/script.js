@@ -56,27 +56,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     attackButton.addEventListener('click', () => {
-        // Variável para verificar se a formação 3x2 está ativa
         let is3x2Formation = false;
     
-        // Verifica se a formação 3x2 está ativa
         const currentFormation = document.querySelector('.dropdown.black .dropdown-content a.active');
         if (currentFormation && currentFormation.textContent === '3x2') {
             is3x2Formation = true;
         }
     
         jogadores.forEach(jogador => {
-            // Mover apenas os jogadores pretos para frente no eixo X
             if (!jogador.classList.contains('white')) {
                 const currentLeft = parseFloat(jogador.style.left);
     
-                // Verifica se é o goleiro (player1) e só permite movimento se for a formação 3x2
                 if (jogador.id === 'player1' && !is3x2Formation) {
-                    return; // Não move o goleiro se não for 3x2
+                    return;
                 }
     
-                // Avançar os jogadores para frente em 10% no eixo X
-                jogador.style.left = `${Math.min(currentLeft + 10, 90)}%`; // Limita o movimento a no máximo 90% no campo
+                // move player
+                jogador.style.left = `${Math.min(currentLeft + 10, 90)}%`;
             }
         });
     });
@@ -102,7 +98,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             jogador.style.right = 'auto';
         });
 
-        // Remover a classe 'active' de todas as formações e adicionar à 2x2
         document.querySelectorAll('.dropdown.black .dropdown-content a').forEach(el => el.classList.remove('active'));
         b2x2.classList.add('active');
 });
@@ -188,7 +183,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             jogador.style.right = 'auto';
         });
 
-        // Remover a classe 'active' de todas as formações e adicionar à 3x2
         document.querySelectorAll('.dropdown.black .dropdown-content a').forEach(el => el.classList.remove('active'));
         b3x2.classList.add('active');
     });
