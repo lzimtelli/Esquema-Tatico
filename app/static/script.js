@@ -128,8 +128,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const newPositions = {
             player1: { top: '45%', left: '0%' },
             player2: { top: '45%', left: '20%' },
-            player3: { top: '15%', left: '36%' },
-            player4: { top: '75%', left: '36%' },
+            player3: { top: '15%', left: '28%' },
+            player4: { top: '75%', left: '28%' },
             player5: { top: '45%', left: '43%' },
         };
 
@@ -150,8 +150,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const newPositions = {
             player6: { top: '45%', right: '0%' },
             player7: { top: '45%', right: '20%' },
-            player8: { top: '15%', right: '36%' },
-            player9: { top: '75%', right: '36%' },
+            player8: { top: '15%', right: '28%' },
+            player9: { top: '75%', right: '28%' },
             player10: { top: '45%', right: '43%' },
         };
 
